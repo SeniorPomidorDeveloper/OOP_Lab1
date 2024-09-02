@@ -41,7 +41,7 @@ void Graph::remove_Edge(const size_t num_node1, const size_t num_node2)
     }
 }
 
-bool Graph::is_connected(const size_t num_node1, const size_t num_node2)
+bool Graph::is_connected(const size_t num_node1, const size_t num_node2) const
 {
     if (num_node1 < size && num_node2 < size && num_node1 != num_node2)
     {
@@ -50,7 +50,7 @@ bool Graph::is_connected(const size_t num_node1, const size_t num_node2)
     return false;
 }
 
-vector<int>& Graph::get_row(const size_t num_node)
+vector<int> Graph::get_row(const size_t num_node) const
 {
     if (num_node < size)
     {
@@ -59,7 +59,7 @@ vector<int>& Graph::get_row(const size_t num_node)
     return adjacency_matrix[size - 1];
 }
 
-size_t Graph::get_size()
+size_t Graph::get_size() const
 {
     return size;
 }

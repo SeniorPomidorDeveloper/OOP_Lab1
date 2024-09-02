@@ -19,9 +19,9 @@ class Graph
         void add_Edge(const size_t num_node1, const size_t num_node2);
         void remove_Node(const size_t num_node);
         void remove_Edge(const size_t num_node1, const size_t num_node2);
-        bool is_connected(const size_t num_node1, const size_t num_node2);
-        vector<int>& get_row(const size_t num_node);
-        size_t get_size();
+        bool is_connected(const size_t num_node1, const size_t num_node2) const;
+        vector<int> get_row(const size_t num_node) const;
+        size_t get_size() const;
 };
 
 void print_Graph(Graph& graph);
