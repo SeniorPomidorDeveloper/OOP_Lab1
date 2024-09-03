@@ -63,15 +63,3 @@ size_t Graph::get_size() const
 {
     return size;
 }
-
-void print_Graph(Graph& graph)
-{
-    for (size_t i = 0; i < graph.get_size(); ++i)
-    {
-        for (int j : graph.get_row(i))
-        {
-            cout << j << " ";
-        }
-        cout << endl;
-    }
-}

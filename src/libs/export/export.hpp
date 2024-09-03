@@ -8,7 +8,7 @@
 using namespace std;
 
 string export_Graph(const Graph& graph);
-string export_Graph(const int *path);
-string export_Graph(const vector<int>& path); 
+string export_Graph(const Graph& graph, const int *path, const size_t path_len);
+string export_Graph(const Graph& graph, const vector<int>& path); 
 
 #endif // EXPORt_HPP

@@ -5,8 +5,6 @@
 #include <vector>
 #include <list>
 
-#include <iostream>
-
 using namespace std;
 
 class Graph
@@ -23,7 +21,5 @@ class Graph
         vector<int> get_row(const size_t num_node) const;
         size_t get_size() const;
 };
-
-void print_Graph(Graph& graph);
 
 #endif // GRAPH_HPP
