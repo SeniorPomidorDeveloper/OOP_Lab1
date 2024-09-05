@@ -1,11 +1,13 @@
 #include "graph.hpp"
 
+#include <algorithm>
+
 void Graph::add_Node()
 {
-    for (vector<int>& row : adjacency_matrix)
+    for_each(adjacency_matrix.begin(), adjacency_matrix.end(), [](vector<int>& row)
     {
         row.push_back(0);
-    }
+    });
     adjacency_matrix.push_back(vector<int>(size + 1, 0));
     size++;
 }
