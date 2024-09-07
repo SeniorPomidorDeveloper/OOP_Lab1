@@ -58,7 +58,7 @@ vector<int> Graph::get_row(const size_t num_node) const
     {
         return adjacency_matrix[num_node];
     }
-    return adjacency_matrix[size - 1];
+    return {};
 }
 
 size_t Graph::get_size() const
