@@ -1,3 +1,5 @@
+/*! \defgroup Export_module Модуль экспорта графа */
+
 #ifndef EXPORt_HPP
 #define EXPORt_HPP
 

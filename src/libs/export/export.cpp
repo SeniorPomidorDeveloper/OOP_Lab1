@@ -4,8 +4,13 @@
 #include <unistd.h>
 #include <string.h>
 
+/*!
+    \ingroup Export_module
 
-
+    \brief Функция, создающая файл в с расширением .dot и записывающая в него граф.
+    \param[in] graph граф.
+    \throw std::runtime_error При возникновении ошибки открытия файла или получении пути до файла.
+*/
 string export_Graph(const Graph& graph)
 {
     string file_name = "graph.dot";
@@ -29,6 +34,16 @@ string export_Graph(const Graph& graph)
     return string(dir_path) + "/" + file_name;
 }
 
+/*!
+    \ingroup Export_module
+
+    \brief Функция, создающая файл в с расширением .dot и записывающая в него граф. Также эта функция закрашивает указанный путь.
+    \param[in] graph граф.
+    \param[in] path указатель на массив, содержащий в себе путь.
+    \param[in] path_len длинна массива.
+    \return Путь до зозданного файла.
+    \throw std::runtime_error При возникновении ошибки открытия файла или получении пути до файла.
+*/
 string export_Graph(const Graph& graph, const int *path, const size_t path_len)
 {
     vector<vector<int>> path_matrix(graph.get_size(), vector<int>(graph.get_size(), 0));
@@ -65,6 +80,15 @@ string export_Graph(const Graph& graph, const int *path, const size_t path_len)
     return string(dir_path) + "/" + file_name;
 }
 
+/*!
+    \ingroup Export_module
+
+    \brief Функция, создающая файл в с расширением .dot и записывающая в него граф. Также эта функция закрашивает указанный путь.
+    \param[in] graph граф.
+    \param[in] path вектор, содержащий в себе путь.
+    \return путь до зозданного файла.
+    \throw std::runtime_error При возникновении ошибки открытия файла или получении пути до файла.
+*/
 string export_Graph(const Graph& graph, const vector<int>& path)
 {
     vector<vector<int>> path_matrix(graph.get_size(), vector<int>(graph.get_size(), 0));

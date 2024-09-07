@@ -1,3 +1,5 @@
+/*! \defgroup Graph_module Модуль графа */
+
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
@@ -7,6 +9,12 @@
 
 using namespace std;
 
+//! Класс графа
+/*!
+    \ingroup Graph_module
+
+    \details Класс описывающий логическую структуру графа. 
+*/
 class Graph
 {
     private:
