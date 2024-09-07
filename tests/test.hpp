@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "../src/libs/graph/graph.hpp"
+#include "../src/libs/export/export.hpp"
 
 using namespace std;
 

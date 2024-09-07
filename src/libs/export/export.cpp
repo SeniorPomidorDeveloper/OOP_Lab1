@@ -22,6 +22,7 @@ string export_Graph(const Graph& graph)
         file_out << "\t" << i << " -- " << j << ";\n";
     }
     file_out << "}\n";
+    file_out.close();
     const size_t BUF_SIZE = 1024;
     char dir_path[BUF_SIZE];
     if (getcwd(dir_path, BUF_SIZE) == NULL) throw runtime_error("Failed to get path dir");
@@ -57,6 +58,7 @@ string export_Graph(const Graph& graph, const int *path, const size_t path_len)
         }
     }
     file_out << "}\n";
+    file_out.close();
     const size_t BUF_SIZE = 1024;
     char dir_path[BUF_SIZE];
     if (getcwd(dir_path, BUF_SIZE) == NULL) runtime_error("Failed to get path dir");
@@ -92,6 +94,7 @@ string export_Graph(const Graph& graph, const vector<int>& path)
         }
     }
     file_out << "}\n";
+    file_out.close();
     const size_t BUF_SIZE = 1024;
     char dir_path[BUF_SIZE];
     if (getcwd(dir_path, BUF_SIZE) == NULL) runtime_error("Failed to get path dir");

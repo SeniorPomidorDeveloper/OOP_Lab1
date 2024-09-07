@@ -1,6 +1,7 @@
 #include "../test.hpp"
 
-class ClassTest : public testing::Test {
+class ClassTest : public testing::Test 
+{
     public:
         Graph *graph;
         

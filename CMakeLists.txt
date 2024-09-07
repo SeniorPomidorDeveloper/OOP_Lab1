@@ -7,7 +7,8 @@ if(test)
     set(SRC 
         ./src/libs/graph/graph.cpp
         ./src/libs/export/export.cpp
-        ./tests/class_tests/class_tests.cpp)
+        ./tests/class_tests/class_tests.cpp
+        ./tests/export_tests/export_tests.cpp)
     add_executable(run ./tests/test.cpp)
     target_link_libraries(run gtest gmock pthread)
     message("Build tests.")
