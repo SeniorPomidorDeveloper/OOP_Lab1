@@ -12,8 +12,8 @@ int main()
     {
         program();
     }
-    catch(const exception& e)
+    catch(const exception& error)
     {
-        cerr << endl << "Exception: " << e.what() << endl;
+        cerr << endl << "Exception: " << error.what() << endl;
     }
 }

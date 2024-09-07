@@ -17,7 +17,7 @@ void del_Node_Graph(Graph& graph)
     cin >> num_node;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     graph.remove_Node(num_node);
 }
@@ -29,13 +29,13 @@ void add_Edge_Graph(Graph& graph)
     cin >> num_node1;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     cout << "Enter the number of the second node: ";
     cin >> num_node2;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     graph.add_Edge(num_node1, num_node2);
 }
@@ -47,13 +47,13 @@ void del_Edge_Graph(Graph& graph)
     cin >> num_node1;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     cout << "Enter the number of the second node: ";
     cin >> num_node2;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     graph.remove_Edge(num_node1, num_node2);
 }
@@ -64,9 +64,9 @@ void path1(Graph& graph)
     {
         cout << "Path: " << export_Graph(graph) << endl;
     }
-    catch(const std::exception& e)
+    catch(const std::exception& error)
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
 }
 
@@ -77,7 +77,7 @@ void path2(Graph& graph)
     cin >> len_path;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     cout << "Enter the path: ";
     int *path = new int[len_path];
@@ -87,16 +87,16 @@ void path2(Graph& graph)
         if (cin.eof())
         {
             delete[] path;
-            throw logic_error("EOF");
+            throw runtime_error("EOF");
         }
     }
     try
     {
         cout << "Path: " << export_Graph(graph, path, len_path) << endl;
     }
-    catch(const exception& e)
+    catch(const exception& error)
     {
-        throw e;
+        throw error;
     }
     delete[] path;
 }
@@ -108,7 +108,7 @@ void path3(Graph& graph)
     cin >> len_path;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     cout << "Enter the path: ";
     vector<int> path(len_path);
@@ -117,16 +117,16 @@ void path3(Graph& graph)
         cin >> path[i];
         if (cin.eof())
         {
-            throw logic_error("EOF");
+            throw runtime_error("EOF");
         }
     }
     try
     {
         cout << "Path: " << export_Graph(graph, path) << endl;
     }
-    catch(const exception& e)
+    catch(const exception& error)
     {
-        throw e;
+        throw error;
     }
 }
 
@@ -146,7 +146,7 @@ void Graph_to_Dot(Graph& graph)
     cin >> func_num;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     if (func_num < funcs.size())
     {
@@ -154,9 +154,9 @@ void Graph_to_Dot(Graph& graph)
         {
             funcs[func_num](graph);
         }
-        catch(const exception& e)
+        catch(const exception& error)
         {
-            throw e;
+            throw error;
         }
     }
 }
@@ -186,7 +186,7 @@ short int menu()
     cin >> option;
     if (cin.eof())
     {
-        throw logic_error("EOF");
+        throw runtime_error("EOF");
     }
     return option;
 }
@@ -206,9 +206,9 @@ void program()
             {
                 funcs[option](graph);
             }
-            catch(const exception& e)
+            catch(const exception& error)
             {
-                throw e;
+                throw error;
             }
         }
     } while (option != 5);

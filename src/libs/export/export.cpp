@@ -12,7 +12,7 @@ string export_Graph(const Graph& graph)
     ofstream file_out(file_name);
     if (!file_out.is_open()) 
     {
-        throw logic_error("Failed to open output file");
+        throw runtime_error("Failed to open output file");
     }
     file_out << "graph Graph {\n" << "\tnode [shape = circle];\n";
     for (size_t i = 0; i < graph.get_size(); ++i)
@@ -24,7 +24,7 @@ string export_Graph(const Graph& graph)
     file_out << "}\n";
     const size_t BUF_SIZE = 1024;
     char dir_path[BUF_SIZE];
-    if (getcwd(dir_path, BUF_SIZE) == NULL) throw logic_error("Failed to get path dir");
+    if (getcwd(dir_path, BUF_SIZE) == NULL) throw runtime_error("Failed to get path dir");
     return string(dir_path) + "/" + file_name;
 }
 
@@ -43,7 +43,7 @@ string export_Graph(const Graph& graph, const int *path, const size_t path_len)
     ofstream file_out(file_name);
     if (!file_out.is_open()) 
     {
-        throw logic_error("Failed to open output file");
+        throw runtime_error("Failed to open output file");
     }
     file_out << "graph Graph {\n" << "\tnode [shape = circle];\n";
     for (size_t i = 0; i < graph.get_size(); ++i)
@@ -59,7 +59,7 @@ string export_Graph(const Graph& graph, const int *path, const size_t path_len)
     file_out << "}\n";
     const size_t BUF_SIZE = 1024;
     char dir_path[BUF_SIZE];
-    if (getcwd(dir_path, BUF_SIZE) == NULL) logic_error("Failed to get path dir");
+    if (getcwd(dir_path, BUF_SIZE) == NULL) runtime_error("Failed to get path dir");
     return string(dir_path) + "/" + file_name;
 }
 
@@ -78,7 +78,7 @@ string export_Graph(const Graph& graph, const vector<int>& path)
     ofstream file_out(file_name);
     if (!file_out.is_open()) 
     {
-        throw logic_error("Failed to open output file");
+        throw runtime_error("Failed to open output file");
     }
     file_out << "graph Graph {\n" << "\tnode [shape = circle];\n";
     for (size_t i = 0; i < graph.get_size(); ++i)
@@ -94,6 +94,6 @@ string export_Graph(const Graph& graph, const vector<int>& path)
     file_out << "}\n";
     const size_t BUF_SIZE = 1024;
     char dir_path[BUF_SIZE];
-    if (getcwd(dir_path, BUF_SIZE) == NULL) logic_error("Failed to get path dir");
+    if (getcwd(dir_path, BUF_SIZE) == NULL) runtime_error("Failed to get path dir");
     return string(dir_path) + "/" + file_name;;
 }
