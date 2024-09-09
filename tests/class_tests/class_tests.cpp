@@ -78,12 +78,23 @@ TEST_F(ClassTest, Test_remove_node)
 {
     // Act
     graph->add_Node();
+    graph->add_Node();
     graph->remove_Node(0);
     size_t size = graph->get_size();
     vector<int> row = graph->get_row(0);
+    vector<int> answer = {0};
+
+    // Assert
+    ASSERT_TRUE(row == answer);
+    ASSERT_EQ(size, 1);
+}
+
+TEST_F(ClassTest, Test_get_row_NOTFOUND)
+{
+    // Act
+    vector<int> row = graph->get_row(1);
     vector<int> answer = {};
 
     // Assert
     ASSERT_TRUE(row == answer);
-    ASSERT_EQ(size, 0);
 }
