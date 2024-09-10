@@ -15,17 +15,11 @@ if(test)
     add_executable(run ./tests/test.cpp)
     target_link_libraries(run gtest gmock pthread)
     message("Build tests.")
-    add_custom_command(
-                       TARGET run
+    add_custom_command(TARGET run
                        POST_BUILD
-                       COMMAND cp ../tests/answers/ ./answers -r
-                       COMMAND valgrind ./run
-                       COMMAND lcov --capture --directory ./CMakeFiles/libs.dir/src/libs/ --output-file gcov.info
-                       COMMAND lcov --directory . --zerocounters
-                       COMMAND lcov --remove gcov.info '/usr/*' --output-file gcov_filtered.info
-                       COMMAND genhtml gcov_filtered.info --output-directory html_cov
-                       COMMAND rm *.info
-                       )
+                       COMMAND make -f ../makefile -s
+                       COMMENT "Start GenCov"
+                       USES_TERMINAL)
 else()
     set(SRC 
         ./src/libs/graph/graph.cpp
