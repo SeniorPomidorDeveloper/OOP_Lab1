@@ -48,10 +48,10 @@ void Graph::remove_Node(const size_t num_node)
     if (num_node < size)
     {
         adjacency_matrix.erase(adjacency_matrix.begin() + num_node); 
-        for (vector<int>& row : adjacency_matrix)
+        for_each (adjacency_matrix.begin(), adjacency_matrix.end(), [&num_node] (vector<int>& row)
         {
             row.erase(row.begin() + num_node);
-        }
+        });
         size--;
     }
 }
@@ -79,7 +79,7 @@ void Graph::remove_Edge(const size_t num_node1, const size_t num_node2)
 
     \details Метод класса Graph, проверящий метку ячейки в матрице смежности.
     
-    \param[in] num_node1, num_node2 индекс вершин, принадлежащих проверяемому ребру, в матрице смежности,.
+    \param[in] num_node1, num_node2 индекс вершин, принадлежащих проверяемому ребру, в матрице смежности.
     \return True если такое ребро существет. Иначе False.
 */
 bool Graph::is_connected(const size_t num_node1, const size_t num_node2) const
@@ -91,10 +91,49 @@ bool Graph::is_connected(const size_t num_node1, const size_t num_node2) const
     return false;
 }
 
-//! Гетер строки
+//! Проверка пути
 /*!
     \ingroup Graph_module
 
+    \details Метод класса Graph, проверящий сущиствования пути в графе.
+    
+    \param[in] path массив содержащий путь.
+    \param[in] len длина массива.
+    \return True если путь существует. Иначе False.
+*/
+bool Graph::has_path(const int *path, const size_t len) const
+{
+    if (len <= 1) return false;
+    for (size_t i = 0; i < len - 1; ++i)
+    {
+        if (!this->is_connected(path[i], path[i + 1])) return false;
+    }
+    return true;
+}
+
+//! Проверка пути
+/*!
+    \ingroup Graph_module
+
+    \details Метод класса Graph, проверящий сущиствования пути в графе.
+    
+    \param[in] path вектор содержащий путь.
+    \return True если путь существует. Иначе False.
+*/
+bool Graph::has_path(const vector<int> &path) const
+{
+    if (path.size() <= 1) return false;
+    for (size_t i = 0; i < path.size() - 1; ++i)
+    {
+        if (!this->is_connected(path[i], path[i + 1])) return false;
+    }
+    return true;
+}
+
+//! Гетер строки
+/*!
+    \ingroup Graph_module
+path.size()
     \details Метод класса Graph, возвращающий строку матрицы смежности.
 
     \param[in] num_row индекс строки в матрице смежности,.

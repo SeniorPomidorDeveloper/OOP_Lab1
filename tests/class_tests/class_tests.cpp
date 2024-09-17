@@ -98,3 +98,31 @@ TEST_F(ClassTest, Test_get_row_NOTFOUND)
     // Assert
     ASSERT_TRUE(row == answer);
 }
+
+TEST_F(ClassTest, Test_has_path_FALSE)
+{
+    // Act
+    bool has1 = graph->has_path({});
+    bool has2 = graph->has_path({}, 0);
+    graph->add_Node();
+    graph->add_Node();
+    bool has3 = graph->has_path({1, 2});
+    int array[] = {1, 2};
+    bool has4 = graph->has_path(array, 2);
+
+    // Assert
+    ASSERT_FALSE(has1 && has2 && has3 && has4);
+}
+
+TEST_F(ClassTest, Test_has_path_TRUE)
+{
+    // Act
+    graph->add_Node();
+    graph->add_Node();
+    bool has1 = graph->has_path({0, 1});
+    int array[] = {0, 1};
+    bool has2 = graph->has_path(array, 2);
+
+    // Assert
+    ASSERT_FALSE(has1 && has2);
+}

@@ -60,14 +60,7 @@ void del_Edge_Graph(Graph& graph)
 
 void path1(Graph& graph)
 {
-    try
-    {
-        cout << "Path: " << export_Graph(graph) << endl;
-    }
-    catch(const std::exception& error)
-    {
-        throw runtime_error("EOF");
-    }
+    cout << "Path: " << export_Graph(graph) << endl;
 }
 
 void path2(Graph& graph)
@@ -94,8 +87,10 @@ void path2(Graph& graph)
     {
         cout << "Path: " << export_Graph(graph, path, len_path) << endl;
     }
-    catch(const exception& error)
+    catch(const domain_error& error)
     {
+        cout << endl;
+        delete[] path;
         throw error;
     }
     delete[] path;
@@ -124,7 +119,7 @@ void path3(Graph& graph)
     {
         cout << "Path: " << export_Graph(graph, path) << endl;
     }
-    catch(const exception& error)
+    catch(const domain_error& error)
     {
         throw error;
     }
@@ -154,9 +149,9 @@ void Graph_to_Dot(Graph& graph)
         {
             funcs[func_num](graph);
         }
-        catch(const exception& error)
+        catch(const domain_error& error)
         {
-            throw error;
+            cout << "Exc: " << error.what() << endl;
         }
     }
 }
@@ -202,14 +197,7 @@ void program()
         option = menu();
         if (option < 5)
         {
-            try
-            {
-                funcs[option](graph);
-            }
-            catch(const exception& error)
-            {
-                throw error;
-            }
+            funcs[option](graph);
         }
     } while (option != 5);
 }

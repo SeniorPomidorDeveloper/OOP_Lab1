@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
 option(test "build tests" OFF)
+SET(MYCOMPILE_FLAGS "-g")
 message("Start build:")
 if(test)
     enable_testing()
-    SET(MYCOMPILE_FLAGS "-g")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
     set(SRC 
